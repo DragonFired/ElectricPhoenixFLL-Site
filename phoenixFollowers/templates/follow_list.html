@@ -1,0 +1,24 @@
+{% extends "base_template.html" %}
+{% block title %}Followers List{% endblock %}
+{% block content %}
+	<table id="followListTable" cellpadding="4">
+		<tr>
+			<th>First Name</th>
+			<th>Last Name</th>
+			<th>Email Address</th>
+			<th>City</th>
+			<th>State</th>
+			<th>Country</th>
+		</tr>
+		{% for contact in contactList %}
+			<tr>
+				<td>{{ contact.firstName }}</td>
+				<td>{{ contact.lastName }}</td>
+				<td>{{ contact.email }}</td>
+				<td>{{ contact.city }}</td>
+				<td>{{ contact.stateProvince }}</td>
+				<td>{{ contact.country }}</td>
+			</tr>
+		{% endfor %}
+	</table>
+{% endblock %}

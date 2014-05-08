@@ -1,0 +1,16 @@
+{% extends "base_template.html" %}
+{% block title %}About Us{% endblock %}
+{% block content %}
+    <h1>Who are the Electric Phoenix?</h1>
+    {% for member in membersList %}
+    <div class="team_member">
+        <img src="/static/images/{{ member.photoFile }}" alt="{{ member.firstName }}" name="{{ member.firstName|lower }}_image" width="125" height="125" id="{{ member.name|lower }}_image" class="team_photos" />
+      <h3>{{ member.firstName }}
+      {% if member.role == 'coach' %}
+		  {{ member.lastName }} - Coach
+	   {% endif %}
+      </h3>
+      <p>{{ member.bio }}</p>
+    </div>
+    {% endfor %}
+{% endblock %}

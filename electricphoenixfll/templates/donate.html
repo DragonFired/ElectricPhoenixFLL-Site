@@ -1,0 +1,75 @@
+{% extends "base_template.html" %}
+{% block title %}Donate{% endblock %}
+{% block content %}
+    <h1>Donations</h1>
+    <p>
+      <!-- end .content -->
+    <p>Help us to raise the money we need to purchase robots, laptops and pay for the competition entry fees.</p>
+    <p>We can provide a tax receipt, since we are associated with a 501(c)3 nonprofit organization!</p>
+    <p align="left">
+
+    <form action="https://authorize.payments.amazon.com/pba/paypipeline" method="post" id="donateform">
+    <!-- <form action="https://authorize.payments-sandbox.amazon.com/pba/paypipeline" method="post" id="donateform"> -->
+   <table width="200">
+      <tr align="left">
+        <td><label>
+          <input type="radio" name="amount" value="5" id="DonationsGroup_0" />
+          $5</label></td>
+      </tr>
+      <tr align="left">
+        <td><label>
+          <input type="radio" name="amount" value="10" id="DonationsGroup_1" />
+          $10</label></td>
+      </tr>
+      <tr align="left">
+        <td><label>
+          <input type="radio" name="amount" value="15" id="DonationsGroup_2" />
+          $15</label></td>
+      </tr>
+      <tr align="left">
+        <td><label>
+          <input type="radio" name="amount" value="20" id="DonationsGroup_3" />
+          $20</label></td>
+      </tr>
+      <tr align="left">
+        <td><label>
+          <input type="radio" name="amount" value="50" id="DonationsGroup_4" />
+          $50</label></td>
+      </tr>
+      <tr align="left">
+        <td><label>
+          <input type="radio" name="amount" value="100" id="DonationsGroup_5" />
+          $100</label></td>
+      </tr>
+      <tr align="left">
+        <td><label>
+          <input type="radio" name="amount" value="200" id="DonationsGroup_6" />
+          $200</label></td>
+      </tr>
+      <tr>
+        <td>
+		  <input type="hidden" name="returnUrl" value="http://www.electricphoenixfll.com/dontate_thanks" >
+		  <input type="hidden" name="processImmediate" value="1" >
+		  <input type="hidden" name="signatureMethod" value="HmacSHA256" >
+		  <input type="hidden" name="accessKey" value="11SEM03K88SD016FS1G2" >
+		  <input type="hidden" name="collectShippingAddress" value="0" >
+		  <input type="hidden" name="isDonationWidget" value="0" >
+		  <input type="hidden" name="amazonPaymentsAccountId" value="RGCBQSKPVTJN3XGL3CP8R56ATI3Q3NIU3SSAU8 " >
+		  <!-- <input type="hidden" name="amazonPaymentsAccountId" value="YPMERAIWDPUX71XD18GPF3K43X8D4KTKK8FZRR" > -->
+		  <input type="hidden" name="referenceId" value="RD-2014" >
+		  <input type="hidden" name="cobrandingStyle" value="logo" >
+		  <input type="hidden" name="immediateReturn" value="1" >
+		  <input type="hidden" name="description" value="Robot Drive donation" >
+		  <input type="hidden" name="abandonUrl" value="http://www.electricphoenixfll.com/donate.html" >
+		  <input type="hidden" name="signatureVersion" value="2" >
+		  <input type="hidden" name="signature" value="lo0jj5AxMWfXlg7ZerHsJigWCTbDH1jYOsAxRI56X2o=" >
+       </td>
+      </tr>
+      <tr>
+        <td align = "center">
+		  <input type="image" src="http://g-ecx.images-amazon.com/images/G/01/asp/golden_medium_donate_withmsg_whitebg.gif" border="0">
+        </td>
+      </tr>
+    </table>   
+</form></p>
+{% endblock %}

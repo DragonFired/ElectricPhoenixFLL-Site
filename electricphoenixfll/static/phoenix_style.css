@@ -217,7 +217,21 @@ th.mon, th.tue, th.wed, th.thu, th.fri, th.sat, th.sun  {
 }
 
 td.mon, td.tue, td.wed, td.thu, td.fri  {
-	background-color: #CCC;
+	background-color: rgba(255, 204, 0, 0.50);
+    vertical-align: top;
+	border: 1px solid lightgray;
+    text-align: center;
+}
+
+td.sat, td.sun  {
+	background-color: #FFF;
+    vertical-align: top;
+	border: 1px solid lightgray;
+    text-align: center;
+}
+
+td.mon.filled ul, td.tue.filled ul, td.wed.filled ul, td.thu.filled ul, td.fri.filled ul {
+    list-style-type: none;
 }
 
 table#followListTable {

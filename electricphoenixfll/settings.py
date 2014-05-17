@@ -61,7 +61,7 @@ WSGI_APPLICATION = 'electricphoenixfll.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'NAME': os.path.join(BASE_DIR, 'epfll.db'),
         'USER': '',
         'PASSWORD': '',
         'HOST': '',
@@ -95,4 +95,5 @@ STATICFILES_DIRS = (
 
 TEMPLATE_DIRS = (
 	os.path.join(os.path.dirname(__file__), 'templates').replace('\\','/'),
+	os.path.join(BASE_DIR, 'phoenixEvents/templates'),
 )

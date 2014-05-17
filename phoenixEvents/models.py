@@ -2,6 +2,7 @@ from __future__ import unicode_literals
 from django.db import models
 from django.utils.encoding import python_2_unicode_compatible
 from autoslug import AutoSlugField
+from django.views.generic import DetailView
 # Create your models here.
 
 @python_2_unicode_compatible
@@ -19,8 +20,9 @@ class Event(models.Model):
 
     @models.permalink
     def get_absolute_url(self):
-        #return ("calendarDetail", [self.slug,])
-        return ('calendarDetail', (), {'slug': self.slug})
+		from django.core.urlresolvers import reverse
+		path = reverse('pEventsCalendarDetail', (), kwargs={'slug':self.slug})
+		return "http://%s" % (path)
 
     def __str__(self):
         return self.eventName + self.eventDescription + str(self.eventDate) + self.eventLocation + str(self.creationDate) + self.eventURL
@@ -49,6 +51,7 @@ class EventCalendar(HTMLCalendar):
                 for event in self.events[day]:
                     body.append('<li>')
                     body.append('<a href="%s">' % event.get_absolute_url())
+                    #body.append('<a href="calendarDetail/%s/">' % event.slug)
                     body.append(escape(event.eventName))
                     body.append('</a></li>')
                 body.append('</ul>')
@@ -69,4 +72,3 @@ class EventCalendar(HTMLCalendar):
 
     def day_cell(self, cssclass, body):
         return '<td class="%s">%s</td>' % (cssclass, body)
-

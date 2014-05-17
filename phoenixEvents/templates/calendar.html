@@ -1,0 +1,25 @@
+{% extends "base_template.html" %}
+{% block title %}Calendar{% endblock %}
+{% block content %}
+    <h1>Calendar</h1>
+    <div id=calendar>
+		{{ calendar }}
+    </div>
+    <div id=topEvents>
+    	<h1> Current Events </h1>
+		{% for event in topEvents %}
+				<h2>{{ event.eventName }}</h2>
+				<h6>{{ event.eventDate }} {{ event.eventTime }}</h6>
+				{% if not event.eventLocation == "" %}
+					<br>Location: {{ event.eventLocation }}<br>
+				{% endif %} 
+				<p>{{ event.eventDescription }}</p>
+				{% if not event.eventURL == "" %}
+					Details: {{ event.eventURL }}
+				{% endif %} 
+				{% if not forloop.last %}
+					<hr>
+				{% endif %}
+		{% endfor %}
+    </div>
+{% endblock %}

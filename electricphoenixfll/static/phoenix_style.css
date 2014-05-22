@@ -80,7 +80,8 @@ a:hover, a:active, a:focus { /* this group of selectors will give a keyboard nav
 	text-align: center;
 	background-color: #FFF;
 	min-height: 750px;
-}.spacer {
+}
+.spacer {
 	width: 100%;
 	height: 5px;
 	float: left;
@@ -197,7 +198,10 @@ ul.nav a:hover, ul.nav a:active, ul.nav a:focus { /* this changes the background
 
 #calendar {
 	float: right;
-	padding: 10px;
+}
+
+#calendar a {
+	text-decoration: none;
 }
 
 table.month {
@@ -214,6 +218,7 @@ th.month {
 
 th.mon, th.tue, th.wed, th.thu, th.fri, th.sat, th.sun  {
 	background-color: #B3B3B3;
+	padding: 8px;
 }
 
 td.mon, td.tue, td.wed, td.thu, td.fri  {
@@ -221,6 +226,7 @@ td.mon, td.tue, td.wed, td.thu, td.fri  {
     vertical-align: top;
 	border: 1px solid lightgray;
     text-align: center;
+	padding: 8px;
 }
 
 td.sat, td.sun  {
@@ -228,6 +234,7 @@ td.sat, td.sun  {
     vertical-align: top;
 	border: 1px solid lightgray;
     text-align: center;
+	padding: 8px;
 }
 
 td.mon.filled ul, td.tue.filled ul, td.wed.filled ul, td.thu.filled ul, td.fri.filled ul {
@@ -247,6 +254,15 @@ table#followListTable.th {
 }
 
 #topEvents {
+	padding-top: 20px;
+	clear: both;
 	text-align: left;
 	text-indent: 5px;
+	padding-left: 10px;
+	padding-right: 10px;
+}
+#topEvents h1, h2, h3, h4, h5, h6, p {
+	padding-right: 15px;
+	padding-left: 0px;
+	text-align: left;
 }

@@ -18,11 +18,11 @@ class Event(models.Model):
                          unique_with=['eventDate'],
                          slugify=lambda value: value.replace(' ','-'))
 
-    @models.permalink
     def get_absolute_url(self):
+		from django.contrib.sites.models import Site
 		from django.core.urlresolvers import reverse
-		path = reverse('pEventsCalendarDetail', (), kwargs={'slug':self.slug})
-		return "http://%s" % (path)
+		path = reverse('pEventsCalendarDetail', kwargs={'slug':self.slug})
+		return "http://%s%s" % (Site.objects.get_current().domain, path)
 
     def __str__(self):
         return self.eventName + self.eventDescription + str(self.eventDate) + self.eventLocation + str(self.creationDate) + self.eventURL
@@ -47,14 +47,13 @@ class EventCalendar(HTMLCalendar):
                 cssclass += ' today'
             if day in self.events:
                 cssclass += ' filled'
-                body = ['<ul>']
+                body = ['<br>']
                 for event in self.events[day]:
-                    body.append('<li>')
+                    #body.append('<li>')
                     body.append('<a href="%s">' % event.get_absolute_url())
-                    #body.append('<a href="calendarDetail/%s/">' % event.slug)
                     body.append(escape(event.eventName))
-                    body.append('</a></li>')
-                body.append('</ul>')
+                    body.append('</a><br>')
+                #body.append('</ul>')
                 return self.day_cell(cssclass, '%d %s' % (day, ''.join(body)))
             return self.day_cell(cssclass, day)
         return self.day_cell('noday', '&nbsp;')

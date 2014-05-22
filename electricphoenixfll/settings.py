@@ -36,6 +36,7 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',
     'phoenixFollowers',
     'phoenixMembers',
     'phoenixEvents',
@@ -54,6 +55,7 @@ ROOT_URLCONF = 'electricphoenixfll.urls'
 
 WSGI_APPLICATION = 'electricphoenixfll.wsgi.application'
 
+SITE_ID = 1
 
 # Database
 # https://docs.djangoproject.com/en/1.6/ref/settings/#databases

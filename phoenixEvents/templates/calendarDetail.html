@@ -1,12 +1,11 @@
 {% extends "base_template.html" %}
 {% block title %}Calendar{% endblock %}
 {% block content %}
-    <h1>Calendar</h1>
     <div id=calendar>
 		{{ calendar }}
     </div>
     <div id=topEvents>
-    	<h1> Event Details </h1>
+    	<h1>Event Details: </h1>
 		<h2>{{ event.eventName }}</h2>
 		<h6>{{ event.eventDate }} {{ event.eventTime }}</h6>
 		<p>{{ event.eventDescription }}</p>
@@ -14,7 +13,7 @@
 			Location: {{ event.eventLocation }}<br>
 		{% endif %} 
 		{% if not event.eventURL == "" %}
-			Details: {{ event.eventURL }}
+			Details: <a href="{{ event.eventURL }}">{{ event.eventURL }}</a>
 		{% endif %} 
     </div>
 {% endblock %}

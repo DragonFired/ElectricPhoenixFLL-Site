@@ -17,9 +17,7 @@ urlpatterns = patterns('',
     url(r'^followEnter/$', 'electricphoenixfll.views.followEnter', name='followEnter'),
     url(r'^followList/$', 'electricphoenixfll.views.followList', name='followList'),
     url(r'^about_us$', 'electricphoenixfll.views.about_us', name='about_us'),
-    #url(r'^calendarDetail/(?P<slug>\w+)/$', 'phoenixEvents.views.calendarDetail', name='pEventsCalendarDetail'),
-    url(r'^calendarDetail/(?P<slug>.+)/$', 'phoenixEvents.views.calendarDetail', name='pEventsCalendarDetail'),
-    # url(r'^blog/', include('blog.urls')),
+    url(r'^calendarDetail/(?P<slug>[\w-]+)/$', 'phoenixEvents.views.calendarDetail', name='pEventsCalendarDetail'),
 
     url(r'^admin/', include(admin.site.urls)),
 )

@@ -37,6 +37,7 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.sites',
+    'mathfilters',
     'phoenixFollowers',
     'phoenixMembers',
     'phoenixEvents',
@@ -71,6 +72,17 @@ DATABASES = {
     }
 }
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',
+#         'NAME': 'epfllwebdb',
+#         'USER': 'epfllweb',
+#         'PASSWORD': 'JellyBeanZ',
+#         'HOST': '',
+#         'PORT': '',
+#     }
+# }
+
 # Internationalization
 # https://docs.djangoproject.com/en/1.6/topics/i18n/
 
@@ -98,4 +110,6 @@ STATICFILES_DIRS = (
 TEMPLATE_DIRS = (
 	os.path.join(os.path.dirname(__file__), 'templates').replace('\\','/'),
 	os.path.join(BASE_DIR, 'phoenixEvents/templates'),
+	os.path.join(BASE_DIR, 'phoenixFollowers/templates'),
+	os.path.join(BASE_DIR, 'phoenixMembers/templates'),
 )

@@ -5,71 +5,82 @@
     <p>
       <!-- end .content -->
     <p>Help us to raise the money we need to purchase robots, laptops and pay for the competition entry fees.</p>
-    <p>We can provide a tax receipt, since we are associated with a 501(c)3 nonprofit organization!</p>
     <p align="left">
+	<script>
+		var amountValues = ["USD 5", "USD 10", "USD 15", "USD 20", "USD 50", "USD 100", "USD 200"];
+		var signatureValues = ["7gaVqv473FEUm7vjClXpBf52An2NzSG8wC0o+ECzYiE=", "ylMIDsXdJ3QifFtL3xVmH9ssKkCDn7jErv4Eja2Vr+M=", "1hLluOcgqusV8I95B3gL8Pedu4+UhhMh/BwgQXuA/Mo=", "pdH6BMJ9xyo1B/P7hT4VQpU3AmB9r/qNuitb6MTtGq4=", "pJxwn0IKeRXLZiqzMXZ+Im62i+Yd5sL8e9KBByOiQ8A=", "s6Gl6iWIy/zENF/QgHXsMQ4nh3nA/24TtsKSpMZGSS4=", "hDpdAb3aEyWp5qtLLDtd/DIi+LjJfdpZd3szbgrQAzM="];
 
-    <form action="https://authorize.payments.amazon.com/pba/paypipeline" method="post" id="donateform">
-    <!-- <form action="https://authorize.payments-sandbox.amazon.com/pba/paypipeline" method="post" id="donateform"> -->
-   <table width="200">
-      <tr align="left">
-        <td><label>
-          <input type="radio" name="amount" value="5" id="DonationsGroup_0" />
-          $5</label></td>
-      </tr>
-      <tr align="left">
-        <td><label>
-          <input type="radio" name="amount" value="10" id="DonationsGroup_1" />
-          $10</label></td>
-      </tr>
-      <tr align="left">
-        <td><label>
-          <input type="radio" name="amount" value="15" id="DonationsGroup_2" />
-          $15</label></td>
-      </tr>
-      <tr align="left">
-        <td><label>
-          <input type="radio" name="amount" value="20" id="DonationsGroup_3" />
-          $20</label></td>
-      </tr>
-      <tr align="left">
-        <td><label>
-          <input type="radio" name="amount" value="50" id="DonationsGroup_4" />
-          $50</label></td>
-      </tr>
-      <tr align="left">
-        <td><label>
-          <input type="radio" name="amount" value="100" id="DonationsGroup_5" />
-          $100</label></td>
-      </tr>
-      <tr align="left">
-        <td><label>
-          <input type="radio" name="amount" value="200" id="DonationsGroup_6" />
-          $200</label></td>
-      </tr>
-      <tr>
-        <td>
-		  <input type="hidden" name="returnUrl" value="http://www.electricphoenixfll.com/dontate_thanks" >
-		  <input type="hidden" name="processImmediate" value="1" >
-		  <input type="hidden" name="signatureMethod" value="HmacSHA256" >
-		  <input type="hidden" name="accessKey" value="11SEM03K88SD016FS1G2" >
-		  <input type="hidden" name="collectShippingAddress" value="0" >
-		  <input type="hidden" name="isDonationWidget" value="0" >
-		  <input type="hidden" name="amazonPaymentsAccountId" value="RGCBQSKPVTJN3XGL3CP8R56ATI3Q3NIU3SSAU8 " >
-		  <!-- <input type="hidden" name="amazonPaymentsAccountId" value="YPMERAIWDPUX71XD18GPF3K43X8D4KTKK8FZRR" > -->
-		  <input type="hidden" name="referenceId" value="RD-2014" >
-		  <input type="hidden" name="cobrandingStyle" value="logo" >
-		  <input type="hidden" name="immediateReturn" value="1" >
-		  <input type="hidden" name="description" value="Robot Drive donation" >
-		  <input type="hidden" name="abandonUrl" value="http://www.electricphoenixfll.com/donate.html" >
-		  <input type="hidden" name="signatureVersion" value="2" >
-		  <input type="hidden" name="signature" value="lo0jj5AxMWfXlg7ZerHsJigWCTbDH1jYOsAxRI56X2o=" >
-       </td>
-      </tr>
-      <tr>
-        <td align = "center">
-		  <input type="image" src="http://g-ecx.images-amazon.com/images/G/01/asp/golden_medium_donate_withmsg_whitebg.gif" border="0">
-        </td>
-      </tr>
-    </table>   
-</form></p>
+		function donationValueChanged(valueIndex) { 
+			document.getElementById("amountInput").value = amountValues[valueIndex];
+			document.getElementById("signatureInput").value = signatureValues[valueIndex];
+			return;
+		}
+	</script>
+
+		<table width="200">
+			<tr align="left">
+				<td>
+					<label><input type="radio" name="dummy" value="5" onchange="donationValueChanged(0);" onchange="donationValueChanged(0);" id="DonationsGroup_0" />$5</label>
+				</td>
+			</tr>
+			<tr align="left">
+				<td>
+					<label><input type="radio" name="dummy" value="10" onchange="donationValueChanged(1);" id="DonationsGroup_1" />$10</label>
+				</td>
+			</tr>
+			<tr align="left">
+				<td>
+					<label><input type="radio" name="dummy" value="15" onchange="donationValueChanged(2);" id="DonationsGroup_2" />$15</label>
+				</td>
+			</tr>
+			<tr align="left">
+				<td>
+					<label><input type="radio" name="dummy" value="20" onchange="donationValueChanged(3);" id="DonationsGroup_3" checked />$20</label>
+				</td>
+			</tr>
+			<tr align="left">
+				<td>
+					<label><input type="radio" name="dummy" value="50" onchange="donationValueChanged(4);" id="DonationsGroup_4" />$50</label>
+				</td>
+			</tr>
+			<tr align="left">
+				<td>
+					<label><input type="radio" name="dummy" value="100" onchange="donationValueChanged(5);" id="DonationsGroup_5" />$100</label>
+				</td>
+			</tr>
+			<tr align="left">
+				<td>
+					<label><input type="radio" name="dummy" value="200" onchange="donationValueChanged(6);" id="DonationsGroup_6" />$200</label>
+				</td>
+			</tr>
+		</table>
+	<form action="https://authorize.payments.amazon.com/pba/paypipeline" method="post" id="donateform">
+	<!-- <form action="https://authorize.payments-sandbox.amazon.com/pba/paypipeline" method="post" id="donateform"> -->
+		<table width="200">
+			<tr>
+				<td>
+					<input type="hidden" name="returnUrl" value="http://www.electricphoenixfll.com/dontate_thanks" >
+					<input type="hidden" name="processImmediate" value="1" >
+					<input type="hidden" name="signatureMethod" value="HmacSHA256" >
+					<input type="hidden" name="accessKey" value="11SEM03K88SD016FS1G2" >
+					<input type="hidden" name="collectShippingAddress" value="1" >
+					<input type="hidden" name="isDonationWidget" value="0" >
+					<input type="hidden" name="amazonPaymentsAccountId" value="RRKNASFLFCBA6349I9MZ7NZK9AXRBGRAUAI9M9" >
+					<input type="hidden" name="referenceId" value="RD-2014" >
+					<input type="hidden" name="cobrandingStyle" value="logo" >
+					<input type="hidden" name="immediateReturn" value="1" >
+					<input type="hidden" name="amount" id="amountInput" value="USD 20" >
+					<input type="hidden" name="description" value="Robot Drive" >
+					<input type="hidden" name="abandonUrl" value="http://www.electricphoenixfll.com/donate.html" >
+					<input type="hidden" name="signatureVersion" value="2" >
+					<input type="hidden" name="signature" id="signatureInput" value="pdH6BMJ9xyo1B/P7hT4VQpU3AmB9r/qNuitb6MTtGq4=" >
+				</td>
+			</tr>
+			<tr>
+				<td align = "center">
+					<input type="image" src="http://g-ecx.images-amazon.com/images/G/01/asp/golden_medium_donate_withmsg_whitebg.gif" border="0">
+				</td>
+			</tr>
+		</table>   
+	</form></p>
 {% endblock %}

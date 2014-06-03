@@ -1,7 +1,22 @@
 {% extends "base_template.html" %}
+{% load mathfilters %}
 {% block title %}Calendar{% endblock %}
 {% block content %}
     <div id=calendar>
+		<span id="calprev" style="float:left">
+			{% if month == 1 %}
+				<a href="{{SITE_DOMAIN}}/calendar/{{ year|sub:1 }}/{{ 12 }}">< prev</a>
+			{% else %}
+				<a href="{{SITE_DOMAIN}}/calendar/{{ year }}/{{ month|sub:1 }}">< prev</a>
+			{% endif %}
+		</span>
+		<span id="calnext" style="float:right">
+			{% if month == 12 %}
+				<a href="{{SITE_DOMAIN}}/calendar/{{ year|add:1 }}/{{ 1 }}">next ></a><br>
+			{% else %}
+				<a href="{{SITE_DOMAIN}}/calendar/{{ year }}/{{ month|add:1|mod:13 }}">next ></a><br>
+			{% endif %}
+		</span><br>
 		{{ calendar }}
     </div>
     <div id=topEvents>

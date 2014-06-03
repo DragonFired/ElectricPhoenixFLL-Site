@@ -12,6 +12,8 @@ def home(request):
 	return render(request, 'index.html', {})
 
 def calendar(request, year = 0, month = 0):
+	year = int(year)
+	month = int(month)
 	if year == 0:
 		now = datetime.datetime.now()
 		year = now.year
@@ -19,7 +21,7 @@ def calendar(request, year = 0, month = 0):
 	myEvents = Event.objects.order_by('eventDate').filter(eventDate__year=year, eventDate__month=month,)
 	screenCalendar = EventCalendar(myEvents).formatmonth(year, month)
 	topEventsList = Event.objects.all().order_by('eventDate')[:3]
-	return render_to_response('calendar.html', {'calendar': mark_safe(screenCalendar),'topEvents': topEventsList,})
+	return render_to_response('calendar.html', {'calendar': mark_safe(screenCalendar),'topEvents': topEventsList, 'year': year, 'month': month})
 
 def forum(request):
 	return render(request, 'forum.html', {})
@@ -67,6 +69,9 @@ def followList(request):
 def about_us(request):
 	membersList = TeamMember.objects.all().order_by('-role', 'firstName')
 	return render(request, 'about_us.html', {'membersList': membersList})
+
+def privacy(request):
+	return render(request, 'privacy.html', {})
 
 
 # 	db = MySQLdb.connect(user='arana', db='bookdb', password='secret', host='localhost')
